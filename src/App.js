@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import './App.css';
 import geolocation from 'geolocation'
+import Weather from './Components/Weather';
 
 function App() {
   const [latitude, setLatitude] = useState('')
@@ -27,6 +28,8 @@ function App() {
       {longitude}
       <br />
       {latitude}
+
+      <Weather />
     </div>
   );
 }
