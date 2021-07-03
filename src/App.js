@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import './App.css';
 import geolocation from 'geolocation'
-import DisplayEarth from './components/DisplayEarth'
+import EarthImage from './components/EarthImage'
 
 function App() {
   const [latitude, setLatitude] = useState('')
@@ -28,7 +28,7 @@ function App() {
       {longitude}
       <br />
       {latitude}
-      <DisplayEarth latitude={latitude} longitude={longitude} />
+      <EarthImage latitude={latitude} longitude={longitude} />
     </div>
   );
 }
