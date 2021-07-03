@@ -1,7 +1,10 @@
 import React, { useState } from 'react'
 import './App.css';
 import geolocation from 'geolocation'
-import Weather from './Components/Weather';
+// import Weather from './Components/Weather';
+import TicketMaster from './Components/TicketMaster'
+
+
 
 function App() {
   const [latitude, setLatitude] = useState('')
@@ -28,8 +31,8 @@ function App() {
       {longitude}
       <br />
       {latitude}
-
-      <Weather />
+      <TicketMaster latitude={latitude} longitude={longitude}/>
+      {/* <Weather /> */}
     </div>
   );
 }
