@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
 import './App.css';
 import geolocation from 'geolocation'
-import Weather from './Components/Weather';
+import Weather from './Components/Weather'
+import ElevateAppBar from './Components/Header'
 
 function App() {
   const [latitude, setLatitude] = useState('')
@@ -12,8 +13,6 @@ function App() {
       geolocation.getCurrentPosition(function (err, position) {
 
       if (err) throw err
-      console.log(position.coords.latitude)
-      console.log(position.coords.longitude)
       setLatitude(position.coords.latitude)
       setLongitude(position.coords.longitude)
       })
@@ -23,13 +22,14 @@ function App() {
       location()
     }
 
+    
+
   return (
     <div className="App">
-      {longitude}
-      <br />
-      {latitude}
 
-      <Weather />
+      <ElevateAppBar />
+
+      <Weather latitude={latitude} longitude={longitude} />
     </div>
   );
 }

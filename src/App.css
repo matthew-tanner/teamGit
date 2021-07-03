@@ -1,3 +1,9 @@
+body {
+  background-color: #D9E4DD !important;
+  border: 1px solid transparent;
+  padding-bottom: 20px;
+}
+
 .App {
   text-align: center;
 }
@@ -5,12 +11,6 @@
 .App-logo {
   height: 40vmin;
   pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
 }
 
 .App-header {
@@ -28,11 +28,49 @@
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Header Component */
+
+.app-bar {
+  background-color: #555555 !important;
+}
+
+/* Sidebar Component */
+
+.sidebar {
+  display: flex;
+  background-color: #FBF7F0;
+  margin-top: 40px;
+}
+
+ul {
+  list-style-type: none;
+}
+
+.sidebar-list-styling {
+  padding-left: 50px;
+  padding-top: 15px;
+  width: 20%;
+  background-color: #D9E4DD;
+  color: #555555;
+}
+
+.sidebar-list a {
+  text-decoration: none;
+  color: #555555;
+}
+
+.sidebar-list a:hover {
+  color: #353535;
+}
+
+.sidebar-route {
+  flex: 1;
+}
+
+/* Home component */
+
+.unsplash-map {
+  max-width: 50%;
+  border-radius: 10px;
+  opacity: 0.7;
 }
