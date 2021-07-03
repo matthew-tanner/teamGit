@@ -10,7 +10,7 @@ const EarthImage = ({ latitude, longitude }) => {
     const [imageUrl, setImageUrl] = useState()
     const [imageDate, setImageDate] = useState()
 
-    const apiUrl = `${baseUrl}lon=${longitude}&lat=${latitude}&date=2021-01-01&&dim=0.10&api_key=${apiKey}`
+    const apiUrl = `${baseUrl}lon=${longitude}&lat=${latitude}&date=2021-03-01&&dim=0.10&api_key=${apiKey}`
     console.log(apiUrl)
 
     const fetcher = () => {

@@ -28,7 +28,7 @@ function App() {
       {longitude}
       <br />
       {latitude}
-      <EarthImage latitude={latitude} longitude={longitude} />
+      <EarthImage latitude={latitude} longitude={longitude} /> 
     </div>
   );
 }
