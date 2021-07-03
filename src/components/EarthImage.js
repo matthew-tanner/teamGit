@@ -8,13 +8,12 @@ const apiKey = "U5YCwar82d9GKNPxCGPTYasZE30KkEyD2glgTP35"
 
 const EarthImage = ({ latitude, longitude }) => {
     const [imageUrl, setImageUrl] = useState()
+    const [imageDate, setImageDate] = useState()
 
     const apiUrl = `${baseUrl}lon=${longitude}&lat=${latitude}&date=2021-01-01&&dim=0.10&api_key=${apiKey}`
     console.log(apiUrl)
 
     const fetcher = () => {
-        console.log("In fetcher")
-
         fetch(apiUrl, {
             method: 'GET',
             headers: {
@@ -24,10 +23,8 @@ const EarthImage = ({ latitude, longitude }) => {
             .then(async res => {
                 try {
                     const data = await res.json()
-                    console.log('response data', data);
-                    console.log(data.url)
                     setImageUrl(data.url)
-                    console.log(imageUrl)
+                    setImageDate(data.date)
                 } catch (err) {
                     console.log('error happened here');
                     console.error(err)
@@ -39,9 +36,12 @@ const EarthImage = ({ latitude, longitude }) => {
 
         <div>
             <button onClick={fetcher}>Click for a satelite view of your location</button>
-            <DisplayEarth imageUrl={imageUrl} />
-            {/* <input type="button" value="Click for a satelite view of your location" /> */}
-            {/* <img src={`${imageUrl`} alt='' /> */}
+            <DisplayEarth 
+                imageUrl={imageUrl} 
+                imageDate={imageDate}
+                latitude={latitude}
+                longitude={longitude}
+            />
         </div>
     )
 }

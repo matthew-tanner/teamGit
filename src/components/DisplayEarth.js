@@ -14,12 +14,13 @@ margin: 10px 10px 0 10px
 `;
 
 
-const DisplayEarth = ({ imageUrl }) => {
-    console.log(imageUrl)
+const DisplayEarth = ({ imageUrl, imageDate, latitude, longitude }) => {
     return (
-        //<img src={imageUrl} alt="" />
         <ImageArea>
             <EarthImage src={imageUrl} />
+            <h3>Image taken by NASA's Landsat 8 satelite on {imageDate}</h3>
+            <br />
+            <h3>Latitude = {latitude} and Longitude = {longitude}</h3>
         </ImageArea>
     )
 }
