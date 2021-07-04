@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
+import { BrowserRouter as Router } from 'react-router-dom'
 import './App.css';
 import geolocation from 'geolocation'
-import Weather from './Components/Weather'
-import ElevateAppBar from './Components/Header'
+import Header from './Components/Header'
+import Sidebar from './Components/Sidebar';
 
 function App() {
   const [latitude, setLatitude] = useState('')
@@ -26,10 +27,14 @@ function App() {
 
   return (
     <div className="App">
+      <Header />
+      
+      <Router>
 
-      <ElevateAppBar />
+      {/* <ElevateAppBar latitude={latitude} longitude={longitude}/> */}
+        <Sidebar latitude={latitude} longitude={longitude} />
+      </Router>
 
-      <Weather latitude={latitude} longitude={longitude} />
     </div>
   );
 }
