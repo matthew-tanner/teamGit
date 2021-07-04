@@ -9,17 +9,15 @@ import Avatar from '@material-ui/core/Avatar';
 import Icon from '@mdi/react';
 import { mdiWeatherSunny } from '@mdi/js';
 import { mdiThermometer } from '@mdi/js';
+import { Container } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
     root: {
-        width: '60%',
-        // display: 'flex',
         backgroundColor: '#f7fbfc',
-        // minWidth: 300,
         alignItems: 'center',
         justifyContent: 'center',
         textAlign: 'center',
-        marginLeft: '20%'
+        display: 'flex',
     },
     content: {
         // flexGrow: 1,
@@ -46,26 +44,28 @@ const WeatherResults = ({ temp, description }) => {
     const classes = useStyles();
     return (
         <div className={classes.root}>
-            <Card className={classes.root}>
-            <List className={classes.root}>
-                <ListItem>
-                    <ListItemAvatar>
-                    <Avatar>
-                        <Icon path={mdiThermometer} />
-                    </Avatar>
-                    </ListItemAvatar>
-                    <ListItemText primary="Temperature" secondary={temp} />
-                </ListItem>
-                <ListItem>
-                    <ListItemAvatar>
-                    <Avatar>
-                        <Icon path={mdiWeatherSunny} />
-                    </Avatar>
-                    </ListItemAvatar>
-                    <ListItemText primary="Conditions" secondary={description} />
-                </ListItem>
-            </List>
-            </Card>
+            <Container maxWidth="sm">
+                <Card className={classes.root}>
+                <List className={classes.root}>
+                    <ListItem>
+                        <ListItemAvatar>
+                        <Avatar>
+                            <Icon path={mdiThermometer} />
+                        </Avatar>
+                        </ListItemAvatar>
+                        <ListItemText primary="Temperature" secondary={temp} />
+                    </ListItem>
+                    <ListItem>
+                        <ListItemAvatar>
+                        <Avatar>
+                            <Icon path={mdiWeatherSunny} />
+                        </Avatar>
+                        </ListItemAvatar>
+                        <ListItemText primary="Conditions" secondary={description} />
+                    </ListItem>
+                </List>
+                </Card>
+            </Container>
         </div>
     )
 }

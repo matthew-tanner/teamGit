@@ -5,7 +5,6 @@ import { makeStyles } from '@material-ui/core/styles';
 import ButtonBase from '@material-ui/core/ButtonBase';
 import Typography from '@material-ui/core/Typography';
 import Toolbar from '@material-ui/core/Toolbar';
-import { CenterFocusStrong } from '@material-ui/icons';
 //
 
 const images = [
@@ -183,7 +182,7 @@ const Weather = ({ latitude, longitude }) => {
                     </Typography>
                 </main>
 
-                <div><WeatherResults temp={temp} sunrise={sunrise} sunset={sunset} description={description} /></div>
+                <div className={classes.content}><WeatherResults temp={temp} sunrise={sunrise} sunset={sunset} description={description} /></div>
             </div>
         )
     }
