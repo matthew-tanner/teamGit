@@ -3,7 +3,7 @@ import React from 'react'
 
 const TicketMasterDisplay = ({events}) => {
  return(
-        <p>{events}</p>
+        <p>stuff</p>
  )
 
 
