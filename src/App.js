@@ -1,7 +1,10 @@
 import React, { useState } from 'react'
+import 'bootstrap/dist/css/bootstrap.css'
 import './App.css';
 import geolocation from 'geolocation'
-import EarthImage from './components/EarthImage'
+import Header from './components/Header'
+import Sidebar from './components/Sidebar'
+import { BrowserRouter as Router } from 'react-router-dom'
 
 function App() {
   const [latitude, setLatitude] = useState('')
@@ -25,10 +28,10 @@ function App() {
 
   return (
     <div className="App">
-      {longitude}
-      <br />
-      {latitude}
-      <EarthImage latitude={latitude} longitude={longitude} /> 
+      <Header />
+      <Router>
+        <Sidebar latitude={latitude} longitude={longitude}/>
+      </Router>
     </div>
   );
 }
