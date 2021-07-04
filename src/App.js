@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import './App.css';
-import geolocation from 'geolocation'
+import geolocation from 'geolocation';
+import GitHubIndex from './GitHub/GitHubIndex';
 
 function App() {
   const [latitude, setLatitude] = useState('')
@@ -11,8 +12,6 @@ function App() {
       geolocation.getCurrentPosition(function (err, position) {
 
       if (err) throw err
-      console.log(position.coords.latitude)
-      console.log(position.coords.longitude)
       setLatitude(position.coords.latitude)
       setLongitude(position.coords.longitude)
       })
@@ -27,6 +26,8 @@ function App() {
       {longitude}
       <br />
       {latitude}
+      <br />
+      <GitHubIndex />
     </div>
   );
 }
