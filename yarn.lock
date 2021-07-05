@@ -1944,7 +1944,7 @@
     "jest-diff" "^26.0.0"
     "pretty-format" "^26.0.0"
 
-"@types/json-schema@*", "@types/json-schema@^7.0.3", "@types/json-schema@^7.0.5", "@types/json-schema@^7.0.6", "@types/json-schema@^7.0.7":
+"@types/json-schema@*", "@types/json-schema@^7.0.3", "@types/json-schema@^7.0.5", "@types/json-schema@^7.0.7":
   "integrity" "sha512-cxWFQVseBm6O9Gbw1IWb8r6OS4OhSt3hPZLkFApLjM8TEXROBuQGLAH2i2gZpcXdLBIrpXuTDhH7Vbm1iXmNGA=="
   "resolved" "https://registry.npmjs.org/@types/json-schema/-/json-schema-7.0.7.tgz"
   "version" "7.0.7"
@@ -10363,11 +10363,11 @@
     "ajv-keywords" "^3.5.2"
 
 "schema-utils@^3.0.0":
-  "integrity" "sha512-6D82/xSzO094ajanoOSbe4YvXWMfn2A//8Y1+MUqFAJul5Bs+yn36xbK9OtNDcRVSBJ9jjeoXftM6CfztsjOAA=="
-  "resolved" "https://registry.npmjs.org/schema-utils/-/schema-utils-3.0.0.tgz"
-  "version" "3.0.0"
+  "integrity" "sha512-tTEaeYkyIhEZ9uWgAjDerWov3T9MgX8dhhy2r0IGeeX4W8ngtGl1++dUve/RUqzuaASSh7shwCDJjEzthxki8w=="
+  "resolved" "https://registry.npmjs.org/schema-utils/-/schema-utils-3.1.0.tgz"
+  "version" "3.1.0"
   dependencies:
-    "@types/json-schema" "^7.0.6"
+    "@types/json-schema" "^7.0.7"
     "ajv" "^6.12.5"
     "ajv-keywords" "^3.5.2"
 
