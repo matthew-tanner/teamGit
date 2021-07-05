@@ -91,7 +91,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 
-//
+// Weather Fetch
 
 const baseUrl = 'http://api.openweathermap.org/data/2.5/weather?'
 const key = '44f658ecdd6d9bcedddf97d114d8dd9c'
@@ -126,11 +126,40 @@ const Weather = ({ latitude, longitude }) => {
         })
     }
     // fetchWeather()
+
+    // const mapUrl = `https://openweathermap.org/weathermap?basemap=map&cities=false&layer=temperature&lat=${latitude}&lon=${longitude}&zoom=5&appid=${key}`
+
+    const mapUrl = `https://tile.openweathermap.org/map/temp_new.png?appid=${key}`
+
+
+
+    // const fetchWeatherMap = () = {
+    //     fetch 
+    // }
+
+    let [forecast, setForecast] = useState({})
+
+    const fetchForecast = () => {
+        fetch(`https://community-open-weather-map.p.rapidapi.com/forecast?lat=${latitude}&lon=${longitude}`, {
+	        "method": "GET",
+            "headers": {
+                "x-rapidapi-key": "adade5df11msh5728b51d01c6b93p105d0fjsn6257d021aee7",
+                "x-rapidapi-host": "community-open-weather-map.p.rapidapi.com"
+            }
+            })
+            .then(response => {
+                console.log(response)
+            })
+            .catch(err => {
+                console.error(err)
+            })
+     }
     
 
     const handleSubmit = (e) => {
         e.preventDefault()
         fetchWeather()
+        console.log(fetchForecast())
     }
 
     const classes = useStyles();
