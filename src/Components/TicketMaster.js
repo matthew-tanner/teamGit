@@ -30,7 +30,7 @@ let TicketMaster = ({latitude, longitude}) => {
     
     <button onClick={fetchTicketMaster}>Search</button>
 
-       <TicketMasterDisplay events={events}  />
+      <TicketMasterDisplay events={events}  />
        
     </>
 )
