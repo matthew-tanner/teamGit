@@ -114,7 +114,7 @@ const WeatherResults = ({ temp, description, max, min, forecastConditions, outlo
 
                 <br />
 
-                <Card className={classes.root}>
+                {/* <Card className={classes.root}>
                 <CardHeader 
                         title="7 Day Outlook"
                     />
@@ -124,7 +124,7 @@ const WeatherResults = ({ temp, description, max, min, forecastConditions, outlo
                             <li>{outlookMin}</li>
                             <li>{outlookConditions}</li>
                         </ul>
-                </Card>
+                </Card> */}
             </Container>
 
             </>
