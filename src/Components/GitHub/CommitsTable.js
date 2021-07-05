@@ -1,7 +1,34 @@
 import React from "react";
 import { DataGrid } from "@material-ui/data-grid";
+import { makeStyles } from "@material-ui/core/styles";
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+    display: "flex",
+  },
+  content: {
+    flexGrow: 1,
+    padding: theme.spacing(3),
+    width: "100%"
+  },
+  palette: {
+    primary: {
+      light: "#f7fbfc",
+      main: "#d6e6f2",
+      dark: "#B9D7EA",
+      contrastText: "#fff",
+    },
+    secondary: {
+      light: "#f7fbfc",
+      main: "#d6e6f2",
+      dark: "#f85050",
+      contrastText: "#000",
+    },
+  },
+}));
 
 const CommitsTable = (props) => {
+  const classes = useStyles();
   const rows = [];
   const columns = [
     {
@@ -39,11 +66,18 @@ const CommitsTable = (props) => {
   };
 
   return (
-    <div style={{margin: "30px"}}>
-      <div style={{ display: "flex", height: 400 }}>
+    <div>
+      <main className={classes.content} style={{ display: "flex", height: 600 }}>
         {commitMap()}
-        <DataGrid autoPageSize pagination pageSize={10} rows={rows} columns={columns} rowHeight={25} />
-      </div>
+        <DataGrid
+          autoPageSize
+          pagination
+          pageSize={10}
+          rows={rows}
+          columns={columns}
+          rowHeight={25}
+        />
+      </main>
     </div>
   );
 };
