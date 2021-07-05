@@ -1,7 +1,10 @@
 import React, { useState } from 'react'
+import { BrowserRouter as Router } from 'react-router-dom'
 import './App.css';
 import geolocation from 'geolocation';
 import GitHubIndex from './GitHub/GitHubIndex';
+import Header from './Components/Header'
+import Sidebar from './Components/Sidebar';
 
 function App() {
   const [latitude, setLatitude] = useState('')
@@ -21,15 +24,20 @@ function App() {
       location()
     }
 
+    
+
   return (
     <div className="App">
-      {longitude}
-      <br />
-      {latitude}
-      <br />
-      <GitHubIndex />
+      <Header />
+      
+      <Router>
+
+      {/* <ElevateAppBar latitude={latitude} longitude={longitude}/> */}
+        <Sidebar latitude={latitude} longitude={longitude} />
+      </Router>
+
     </div>
-  );
+  )
 }
 
 export default App;
