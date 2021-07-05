@@ -6,6 +6,8 @@ import GitHubIndex from "./Components/GitHub/GitHubIndex";
 import Layout from "./Components/Layout";
 import Weather from "./Components/WeatherApp/Weather";
 import Home from "./Components/Home";
+import GetEarthImage from "./Components/GetEarthImage";
+import TicketMaster from "./Components/TicketMaster";
 
 function App() {
   const [latitude, setLatitude] = useState("");
@@ -33,6 +35,12 @@ function App() {
             </Route>
             <Route path="/weather">
               <Weather longitude={longitude} latitude={latitude} />
+            </Route>
+            <Route path="/nasa">
+              <GetEarthImage longitude={longitude} latitude={latitude} />
+            </Route>
+            <Route path="/events">
+              <TicketMaster longitude={longitude} latitude={latitude} />
             </Route>
             <Route path="/github">
               <GitHubIndex />

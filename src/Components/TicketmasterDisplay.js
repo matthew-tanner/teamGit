@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 // import styled from 'styled-components'
 
 // const TicketMaster = styled.img`
@@ -6,29 +6,28 @@ import React from 'react'
 // height: calc(100% - 20px);
 // margin: 10px 10px 0 10px'
 // `
-const TicketMasterDisplay = ({events}) => {
-       const eventMap = () => {
-       return events.map((event, index) => {
-              return rows.push({
-                     id: index,
-		     col1: event.name,
-		     col2: event.distance,
-	 	     col3: event.time,
-		     col4:event.dates.start.localDate,
-		     col5: <a href={event.url}>Click Here for Tickets</a>,
-		     col6: <img src={event.images[0].url} />
-})
+const TicketMasterDisplay = ({ events }) => {
 
-       })
-       }
-return(
-       <>       
-       {eventMap()}
-       //Make a table with headings and data display 
-       </>
-)
+  const rows = []
 
+  const eventMap = () => {
+    return events.map((event, index) => {
+      return rows.push({
+        id: index,
+        col1: event.name,
+        col2: event.distance,
+        col3: event.time,
+        col4: event.dates.start.localDate,
+        col5: <a href={event.url}>Click Here for Tickets</a>,
+        col6: <img src={event.images[0].url} />,
+      });
+    });
+  };
+  return (
+    <>
+      {eventMap()}
+    </>
+  );
+};
 
-}
-
-export default TicketMasterDisplay
+export default TicketMasterDisplay;

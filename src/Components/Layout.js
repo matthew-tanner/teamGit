@@ -55,6 +55,10 @@ export default function Layout({ children }) {
       path: "/events",
     },
     {
+      text: "NASA",
+      path: "/nasa",
+    },
+    {
       text: "GitHub",
       path: "/github",
     },
