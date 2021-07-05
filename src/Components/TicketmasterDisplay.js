@@ -9,17 +9,16 @@ import React from 'react'
 const TicketMasterDisplay = ({events}) => {
        const eventMap = () => {
        return events.map((event, index) => {
-              return (
-                     <>
-                     <p>Event: {event.name}</p>
-                     <p>{event.distance}</p>
-                     <p>{event.time}</p>
-                     <p>{event.dates.start.localDate}</p>
-                     <p>{event.dates.start.localTime}</p>
-                     <a href={event.url}>Click Here for Tickets</a>
-                     <img src={event.images[0].url} />
-                     </>   
-              )
+              return rows.push({
+                     id: index,
+		     col1: event.name,
+		     col2: event.distance,
+	 	     col3: event.time,
+		     col4:event.dates.start.localDate,
+		     col5: <a href={event.url}>Click Here for Tickets</a>,
+		     col6: <img src={event.images[0].url} />
+})
+
        })
        }
 return(

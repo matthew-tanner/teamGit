@@ -28,9 +28,9 @@ let TicketMaster = ({latitude, longitude}) => {
     <>
     <span>Search for Events in Your Area</span>
     
-    <button onClick={fetchTicketMaster}>Search</button>
+    <button onClick={fetchTicketMaster} >Search</button>
 
-      <TicketMasterDisplay events={events}  />
+    <TicketMasterDisplay events={events}  />
        
     </>
 )

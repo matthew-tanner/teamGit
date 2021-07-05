@@ -55,79 +55,6 @@ body {
   border-radius: 10px;
   opacity: 0.7;
 }
-<<<<<<< HEAD
-body {
-  padding: 15px;
-  background-color: white;
-  font: Belleza;
-}
-
-footer {
-  background-color: #53565A;
-  color: white;
-  margin-top: 10px;
-}
-
-footer p {
-  margin-top: 0.8em!important;
-  margin-left: 1.5em;
-}
-
-.main {
-  background-color: white;
-  color: black;
-  height: 100%;
-  min-height: 100%;
-}
-
-.mainDiv {
-  margin: auto;
-  width: 90%;
-  padding: 5px;
-}
-
-.sidebar{
-  display: flex;
-  background-color: white;
-  margin-top: 10px;
-}
-
-ul {
-  list-style-type: none;
-}
-
-.sidebar-list-styling {
-  padding-left: 50px;
-  padding-top: 15px;
-  width: 20%;
-  background-color: white;
-  color: black;
-}
-
-.sidebar-list a {
-  color: black;
-  padding: 0;
-}
-
-.sidebar-route{
-  flex: 1;
-  padding: '00px';
-}
-
-.header {
-  margin-top: 0.5em!important;
-  text-align: center;
-  background-color: #53565A;
-  color: white;
-}
-
-.header a {
-  color: white;
-}
-
-.header p {
-  margin-top: 0.8em!important;
-=======
 
 .homeHeader {
   color: #F85050;
@@ -162,5 +89,4 @@ ul {
 
 .weatherList {
   list-style-type: none;
->>>>>>> 3fc812759908a9ded97f430abe554c88e76d1290
 }
