@@ -1,41 +1,61 @@
+body {
+  background-color: #F7FBFC !important;
+  border: 1px solid transparent;
+  padding-bottom: 20px;
+}
+
 .App {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* Header Component */
+
+.app-bar {
+  background-color: #b9d7ea;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/* Sidebar */
+
+.sidebar {
+  background-color: #f7fbfc;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.sidebar-list {
+  list-style-type: none;
+  text-align: center;
+  padding-bottom: 50px;
+  padding-right: 30px;
+
+}
+
+.sidebar-list-styling {
+  background-color: #D6e6f2;
+  /* padding-left: 50px; */
+  padding-top: 15px;
+  width: 20%;
+  color: black;
+  margin-top: -10px;
+}
+
+.sidebar-list a {
   color: white;
+  padding: 0;
+  text-decoration: none;
 }
 
-.App-link {
-  color: #61dafb;
+.sidebar-route{
+  flex: 1;
+  padding: '00px';
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Home component */
+
+.unsplash-map {
+  max-width: 50%;
+  border-radius: 10px;
+  opacity: 0.7;
 }
+<<<<<<< HEAD
 body {
   padding: 15px;
   background-color: white;
@@ -107,4 +127,40 @@ ul {
 
 .header p {
   margin-top: 0.8em!important;
+=======
+
+.homeHeader {
+  color: #F85050;
+}
+
+.homeParagraph {
+  color: #b9d7ea;
+}
+
+/* Weather component */
+.submit {
+  background-color: #F85050;
+  vertical-align: middle;
+  border: none;
+  line-height: 1;
+  transition: all .1s ease-out;
+  margin-right: 4px;
+  margin-bottom: 4px;
+  max-width: 100%;
+  text-align: center;
+  color: #fafafa;
+  padding: 17px 30px;
+  text-transform: uppercase;
+  border-radius: 3px;
+  -webkit-appearance: none;
+  font-size: 14px
+}
+
+.submit a:hover {
+  box-shadow: 5px 5px 5px color #f85050;
+}
+
+.weatherList {
+  list-style-type: none;
+>>>>>>> 3fc812759908a9ded97f430abe554c88e76d1290
 }
