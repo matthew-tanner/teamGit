@@ -1,17 +1,10 @@
 import React, { useState } from 'react'
+import 'bootstrap/dist/css/bootstrap.css'
 import './App.css';
 import geolocation from 'geolocation'
-// import Weather from './Components/Weather';
-import TicketMaster from './Components/TicketMaster'
-
-
-
-function App() {
-  const [latitude, setLatitude] = useState('')
   const [longitude, setLongitude] = useState('')
 
     const location = () => {
-
       geolocation.getCurrentPosition(function (err, position) {
 
       if (err) throw err
@@ -28,13 +21,12 @@ function App() {
 
   return (
     <div className="App">
-      {longitude}
-      <br />
-      {latitude}
-      <TicketMaster latitude={latitude} longitude={longitude}/>
-      {/* <Weather /> */}
+      <Header />
+      <Router>
+        <Sidebar latitude={latitude} longitude={longitude}/>
+      </Router>
     </div>
   );
-}
+
 
 export default App;
