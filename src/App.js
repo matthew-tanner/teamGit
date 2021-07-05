@@ -6,8 +6,8 @@ import GitHubIndex from "./Components/GitHub/GitHubIndex";
 import Layout from "./Components/Layout";
 import Weather from "./Components/WeatherApp/Weather";
 import Home from "./Components/Home";
-import GetEarthImage from "./Components/GetEarthImage";
-import TicketMaster from "./Components/TicketMaster";
+import GetEarthImage from "./Components/Nasa/GetEarthImage";
+import TicketMaster from "./Components/TicketMaster/TicketMaster";
 
 function App() {
   const [latitude, setLatitude] = useState("");

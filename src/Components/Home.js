@@ -34,8 +34,8 @@ const Home = () => {
     <div>
       <main className={classes.content}>
         <Toolbar />
-        <Typography paragraph className="homeHeader">
-          <h1>What's Local?</h1>
+        <Typography variant="h3" className="homeHeader">
+          What's Local?
         </Typography>
         <Typography paragraph className="homeParagraph">
           Stay up to date on events, weather, and NASA data in your area with just a few easy
