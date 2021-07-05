@@ -13,7 +13,7 @@ import geolocation from 'geolocation'
       setLatitude(position.coords.latitude)
       setLongitude(position.coords.longitude)
       })
-    }
+    
 
     if (!latitude && !longitude) {
       location()
@@ -28,5 +28,5 @@ import geolocation from 'geolocation'
     </div>
   );
 
-
+}
 export default App;
