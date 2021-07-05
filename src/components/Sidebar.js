@@ -5,6 +5,7 @@ import {
 } from 'react-router-dom'
 import Home from './Home'
 import GetEarthImage from './GetEarthImage'
+import TicketMaster from './TicketMaster'
 
 const Sidebar = ({ latitude, longitude }) => {
     console.log(latitude, longitude)
@@ -14,6 +15,7 @@ const Sidebar = ({ latitude, longitude }) => {
                 <ul className='sidebar-list list-unstyled'>
                     <li><Link to='/'>Home</Link></li>
                     <li><Link to='/getearthimage'>Satellite Image</Link></li> 
+                    <li><Link to='/event'>TicketMaster</Link></li>
                 </ul>
             </div>
 
@@ -22,6 +24,7 @@ const Sidebar = ({ latitude, longitude }) => {
                     <Route exact path='/home'><Home /></Route>
                     <Route exact path='/getearthimage'><GetEarthImage latitude={latitude} longitude={longitude} /></Route>
                     <Route exact path='/'><Home /></Route>
+                    <Route exact path='/event'><TicketMaster latitude={latitude} longitude={longitude} /></Route>
                 </Switch>
             </div>
         </div>
