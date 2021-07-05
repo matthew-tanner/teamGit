@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-//import 'bootstrap/dist/css/bootstrap.css'
+import 'bootstrap/dist/css/bootstrap.css'
 import { makeStyles } from '@material-ui/core/styles'
 import ButtonBase from '@material-ui/core/ButtonBase';
 import Typography from '@material-ui/core/Typography';
@@ -89,7 +89,6 @@ const apiKey = "U5YCwar82d9GKNPxCGPTYasZE30KkEyD2glgTP35"
 const GetEarthImage = ({ latitude, longitude }) => {
     const [imageUrl, setImageUrl] = useState()
     const [imageDate, setImageDate] = useState()
-    const [showImg, setShowImg] = useState(false)
 
     const apiUrl = `${baseUrl}lon=${longitude}&lat=${latitude}&date=2021-03-01&&dim=0.10&api_key=${apiKey}`
     console.log(apiUrl)
@@ -116,7 +115,6 @@ const GetEarthImage = ({ latitude, longitude }) => {
     const handleSubmit = (e) => {
         e.preventDefault()
         fetcher()
-        setShowImg(true)
     }
 
     const classes = useStyles();
@@ -125,46 +123,45 @@ const GetEarthImage = ({ latitude, longitude }) => {
         <div>
             <main className={classes.content}>
                 <Toolbar />
-                <Typography variant="h3" color="error">
-                    Satellite
+                <Typography paragraph className='homeHeader'>
+                    <h1>Satellite</h1>
                 </Typography>
-
-                <Typography variant="h6" color="primary">
+                <Typography paragraph className='homeParagraph'>
                     Click below for a satellite image of your location
                 </Typography>
-
-                <div className={classes.root}>
-                    <ButtonBase
-                        onClick={(e) => handleSubmit(e)}
-                        focusRipple
-                        key='Satelitte Image'
-                        className={classes.image}
-                        focusVisibleClassName={classes.focusVisible}
-                        style={{
-                            width: '30%',
-                            marginBottom: '10px',
-                        }}
-                    >
-                        <span
-                            className={classes.imageSrc}
+                <Typography paragraph>
+                    <div className={classes.root}>
+                        <ButtonBase
+                            onClick={(e) => handleSubmit(e)}
+                            focusRipple
+                            key='Satelitte Image'
+                            className={classes.image}
+                            focusVisibleClassName={classes.focusVisible}
                             style={{
-                                backgroundImage: 'url(https://images.unsplash.com/photo-1534996858221-380b92700493?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1189&q=80)',
+                                width: '40%',
                             }}
-                        />
-                        <span className={classes.imageBackdrop} />
-                        <span className={classes.imageButton}>
-                            <Typography
-                                component="span"
-                                variant="subtitle1"
-                                color="inherit"
-                                className={classes.imageTitle}
-                            >
-                                Satellite Image
-                                <span className={classes.imageMarked} />
-                            </Typography>
-                        </span>
-                    </ButtonBase>
-                </div>
+                        >
+                            <span
+                                className={classes.imageSrc}
+                                style={{
+                                    backgroundImage: 'url(https://images.unsplash.com/photo-1534996858221-380b92700493?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1189&q=80)',
+                                }}
+                            />
+                            <span className={classes.imageBackdrop} />
+                            <span className={classes.imageButton}>
+                                <Typography
+                                    component="span"
+                                    variant="subtitle1"
+                                    color="inherit"
+                                    className={classes.imageTitle}
+                                >
+                                    Satellite Image
+                                    <span className={classes.imageMarked} />
+                                </Typography>
+                            </span>
+                        </ButtonBase>
+                    </div>
+                </Typography>
             </main>
 
             <div className={classes.content}>
@@ -173,7 +170,6 @@ const GetEarthImage = ({ latitude, longitude }) => {
                     imageDate={imageDate}
                     latitude={latitude}
                     longitude={longitude}
-                    showImg={showImg}
                 />
             </div>
         </div>
@@ -181,3 +177,4 @@ const GetEarthImage = ({ latitude, longitude }) => {
 }
 
 export default GetEarthImage
+

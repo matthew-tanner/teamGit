@@ -5,6 +5,7 @@ import {
 } from 'react-router-dom'
 import Home from './Home'
 import Weather from './WeatherApp/Weather'
+import TicketMaster from './Components/TicketMaster'
 import React from 'react';
 import Drawer from '@material-ui/core/Drawer'
 import GetEarthImage from './GetEarthImage'
@@ -19,6 +20,7 @@ const Sidebar = ({ latitude, longitude }) => {
                     <li><Link to='/'>Home</Link></li>
                     <li><Link to='/weather'>Current Weather</Link></li> 
                     <li><Link to='/getearthimage'>Satellite Image</Link></li> 
+                    <li><Link to='/ticketmaster'>Events</Link></li>
                 </ul>
             </div>
 
@@ -28,6 +30,7 @@ const Sidebar = ({ latitude, longitude }) => {
                     <Route exact path='/weather'><Weather latitude={latitude} longitude={longitude} /></Route>
                     <Route exact path='/getearthimage'><GetEarthImage latitude={latitude} longitude={longitude} /></Route>
                     <Route exact path='/'><Home /></Route>
+                    <Route exact path='/ticketmaster'><TicketMaster /></Route>
                 </Switch>
             </div>
         </div>

@@ -1,42 +1,47 @@
-import React, { useState } from 'react'
-import { BrowserRouter as Router } from 'react-router-dom'
-import './App.css';
-import geolocation from 'geolocation'
-import Header from './Components/Header'
-import Sidebar from './Components/Sidebar';
+import React, { useState } from "react";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import "./App.css";
+import geolocation from "geolocation";
+import GitHubIndex from "./Components/GitHub/GitHubIndex";
+import Layout from "./Components/Layout";
+import Weather from "./Components/WeatherApp/Weather";
+import Home from "./Components/Home";
 
 function App() {
-  const [latitude, setLatitude] = useState('')
-  const [longitude, setLongitude] = useState('')
+  const [latitude, setLatitude] = useState("");
+  const [longitude, setLongitude] = useState("");
 
-    const location = () => {
+  const location = () => {
+    geolocation.getCurrentPosition(function (err, position) {
+      if (err) throw err;
+      setLatitude(position.coords.latitude);
+      setLongitude(position.coords.longitude);
+    });
+  };
 
-      geolocation.getCurrentPosition(function (err, position) {
-
-      if (err) throw err
-      setLatitude(position.coords.latitude)
-      setLongitude(position.coords.longitude)
-      })
-    }
-
-    if (!latitude && !longitude) {
-      location()
-    }
-
-    
+  if (!latitude && !longitude) {
+    location();
+  }
 
   return (
     <div className="App">
-      <Header />
-      
       <Router>
-
-      {/* <ElevateAppBar latitude={latitude} longitude={longitude}/> */}
-        <Sidebar latitude={latitude} longitude={longitude} />
+        <Layout>
+          <Switch>
+            <Route exact path="/">
+              <Home />
+            </Route>
+            <Route path="/weather">
+              <Weather longitude={longitude} latitude={latitude} />
+            </Route>
+            <Route path="/github">
+              <GitHubIndex />
+            </Route>
+          </Switch>
+        </Layout>
       </Router>
-
     </div>
-  )
+  );
 }
 
 export default App;
