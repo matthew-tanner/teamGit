@@ -40,10 +40,11 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 
-const WeatherResults = ({ temp, description }) => {
+const WeatherResults = ({ temp, description, showSelection }) => {
     const classes = useStyles();
-    return (
-        <div className={classes.root}>
+    const showDisplay = () => {
+        if (showSelection ==true) {
+            return (
             <Container maxWidth="sm">
                 <Card className={classes.root}>
                 <List className={classes.root}>
@@ -66,6 +67,16 @@ const WeatherResults = ({ temp, description }) => {
                 </List>
                 </Card>
             </Container>
+            )
+        }  else {
+            return (
+                <div></div>
+            )
+        }
+    }
+    return (
+        <div className={classes.root}>
+            {showDisplay()}
         </div>
     )
 }

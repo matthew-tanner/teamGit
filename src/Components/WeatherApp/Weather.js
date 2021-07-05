@@ -103,6 +103,7 @@ const Weather = ({ latitude, longitude }) => {
     const [sunrise, setSunrise] = useState('')
     const [sunset, setSunset] = useState('')
     const [description, setDescription] = useState('')
+    const [showSelection, setShowSelection] = useState(false)
 
     const url = `${baseUrl}lat=${latitude}&lon=${longitude}&units=imperial&appid=${key}`
     
@@ -129,7 +130,7 @@ const Weather = ({ latitude, longitude }) => {
 
     // const mapUrl = `https://openweathermap.org/weathermap?basemap=map&cities=false&layer=temperature&lat=${latitude}&lon=${longitude}&zoom=5&appid=${key}`
 
-    const mapUrl = `https://tile.openweathermap.org/map/temp_new.png?appid=${key}`
+    // const mapUrl = `https://tile.openweathermap.org/map/temp_new.png?appid=${key}`
 
 
 
@@ -140,19 +141,15 @@ const Weather = ({ latitude, longitude }) => {
     let [forecast, setForecast] = useState({})
 
     const fetchForecast = () => {
-        fetch(`https://community-open-weather-map.p.rapidapi.com/forecast?lat=${latitude}&lon=${longitude}`, {
-	        "method": "GET",
-            "headers": {
-                "x-rapidapi-key": "adade5df11msh5728b51d01c6b93p105d0fjsn6257d021aee7",
-                "x-rapidapi-host": "community-open-weather-map.p.rapidapi.com"
+        fetch (`https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&exclude=current,minutely,hourly,alerts&units=imperial&lon=${longitude}&appid=${key}`)
+        .then( async res => {
+            try {
+                const dataF = await res.json()
+                console.log(dataF)
+            } catch(err) {
+                console.log('error')
             }
-            })
-            .then(response => {
-                console.log(response)
-            })
-            .catch(err => {
-                console.error(err)
-            })
+        })
      }
     
 
@@ -160,6 +157,7 @@ const Weather = ({ latitude, longitude }) => {
         e.preventDefault()
         fetchWeather()
         console.log(fetchForecast())
+        setShowSelection(true)
     }
 
     const classes = useStyles();
@@ -211,7 +209,7 @@ const Weather = ({ latitude, longitude }) => {
                     </Typography>
                 </main>
 
-                <div className={classes.content}><WeatherResults temp={temp} sunrise={sunrise} sunset={sunset} description={description} /></div>
+                <div className={classes.content}><WeatherResults temp={temp} sunrise={sunrise} sunset={sunset} description={description} showSelection={showSelection} /></div>
             </div>
         )
     }
