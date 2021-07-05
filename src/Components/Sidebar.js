@@ -6,7 +6,7 @@ import {
 import Home from './Home'
 import Weather from './WeatherApp/Weather'
 import React from 'react';
-import Drawer from '@material-ui/core/Drawer'
+
 
 const Sidebar = ({ latitude, longitude }) => {
     console.log(latitude, longitude)

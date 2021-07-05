@@ -41,7 +41,7 @@ const Home = () => {
                     Stay up to date on events, weather, and NASA data in your area with just a few easy clicks.
                 </Typography>
                 <Typography paragraph>
-                    <img className='unsplash-map' src={unsplashMap} />
+                    <img className='unsplash-map' src={unsplashMap} alt=''/>
                 </Typography>
             </main>
         </div>

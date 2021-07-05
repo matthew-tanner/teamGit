@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import WeatherResults from './WeatherResults'
-// import ComplexButton from './ComplexButton';
 import { makeStyles } from '@material-ui/core/styles';
 import ButtonBase from '@material-ui/core/ButtonBase';
 import Typography from '@material-ui/core/Typography';
@@ -98,12 +97,16 @@ const key = '44f658ecdd6d9bcedddf97d114d8dd9c'
 
 
 const Weather = ({ latitude, longitude }) => {
-    const [search, setSearch] = useState('')
     const [temp, setTemp] = useState('')
-    const [sunrise, setSunrise] = useState('')
-    const [sunset, setSunset] = useState('')
     const [description, setDescription] = useState('')
     const [showSelection, setShowSelection] = useState(false)
+    const [max, setMax] = useState('')
+    const [min, setMin] = useState('')
+    const [forecastConditions, setForecastConditions] = useState('')
+    const [outlookMax, setOutlookMax] = useState('')
+    const [outlookMin, setOutlookMin] = useState('')
+    const [outlookConditions, setOutlookConditions] = useState('')
+    const [forecast, setForecast] = useState('')
 
     const url = `${baseUrl}lat=${latitude}&lon=${longitude}&units=imperial&appid=${key}`
     
@@ -111,52 +114,39 @@ const Weather = ({ latitude, longitude }) => {
         fetch (url).then( async res => {
             try {
                 const data = await res.json()
-                
-                console.log(data)
-                console.log(data.main.temp)
-                console.log(data.sys.sunrise)
-                console.log(data.sys.sunset)
-                console.log(data.weather[0].description)
-                setTemp(data.main.temp)
+                setTemp(Math.round(data.main.temp))
                 setDescription(data.weather[0].description)
-                setSunrise(data.sys.sunrise)
-                setSunset(data.sys.sunset)
             } catch(err) {
                 console.log('error')
             }
         })
     }
-    // fetchWeather()
-
-    // const mapUrl = `https://openweathermap.org/weathermap?basemap=map&cities=false&layer=temperature&lat=${latitude}&lon=${longitude}&zoom=5&appid=${key}`
-
-    // const mapUrl = `https://tile.openweathermap.org/map/temp_new.png?appid=${key}`
-
-
-
-    // const fetchWeatherMap = () = {
-    //     fetch 
-    // }
-
-    let [forecast, setForecast] = useState({})
 
     const fetchForecast = () => {
         fetch (`https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&exclude=current,minutely,hourly,alerts&units=imperial&lon=${longitude}&appid=${key}`)
         .then( async res => {
             try {
                 const dataF = await res.json()
-                console.log(dataF)
+                console.log(dataF.daily.map(a => Math.round(a.temp.max)))
+                console.log(dataF.daily.map(a => Math.round(a.temp.min)))
+                console.log(dataF.daily.map(a => a.weather[0].description))
+                setMax(Math.round(dataF.daily[0].temp.max))
+                setMin(Math.round(dataF.daily[0].temp.min))
+                setForecastConditions(dataF.daily[0].weather[0].description)
+                setOutlookMax(dataF.daily.map(a => Math.round(a.temp.max)))
+                setOutlookMin(dataF.daily.map(a => Math.round(a.temp.min)))
+                setOutlookConditions(dataF.daily.map(a => a.weather[0].description))
+                setForecast(dataF.daily)
             } catch(err) {
                 console.log('error')
             }
         })
-     }
-    
+    }
 
     const handleSubmit = (e) => {
         e.preventDefault()
+        fetchForecast()
         fetchWeather()
-        console.log(fetchForecast())
         setShowSelection(true)
     }
 
@@ -166,13 +156,11 @@ const Weather = ({ latitude, longitude }) => {
             <div>
                 <main className={classes.content}>
                     <Toolbar/>
-                    <Typography paragraph className='homeHeader'>
-                        <h1>Weather</h1>
-                    </Typography>
+                    <Typography variant="h3" className='card-header'>Weather</Typography>
+
                     <Typography paragraph className='homeParagraph'>
                         Click below to find local weather conditions.
                     </Typography>
-                    <Typography paragraph>
                     <div className={classes.root}>
                         {images.map((image) => (
                             <ButtonBase
@@ -206,10 +194,9 @@ const Weather = ({ latitude, longitude }) => {
                             </ButtonBase>
                             ))}
                         </div>
-                    </Typography>
                 </main>
 
-                <div className={classes.content}><WeatherResults temp={temp} sunrise={sunrise} sunset={sunset} description={description} showSelection={showSelection} /></div>
+                <div className={classes.content}><WeatherResults temp={temp} description={description} max={max} min={min} forecastConditions={forecastConditions} outlookMax={outlookMax} outlookMin={outlookMin} outlookConditions={outlookConditions} forecast={forecast} showSelection={showSelection} /></div>
             </div>
         )
     }

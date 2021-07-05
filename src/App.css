@@ -61,7 +61,7 @@ body {
 }
 
 .homeParagraph {
-  color: #b9d7ea;
+  color: #8196a3;
 }
 
 /* Weather component */
@@ -89,4 +89,9 @@ body {
 
 .weatherList {
   list-style-type: none;
+}
+
+.card-header {
+  color: #F85050;
+  text-align: center;
 }

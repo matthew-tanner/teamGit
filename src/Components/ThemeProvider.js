@@ -1,26 +1,28 @@
 import React from 'react';
 import { createMuiTheme, makeStyles, ThemeProvider } from '@material-ui/core/styles';
 
-const theme1 = createMuiTheme ({
+const theme = createMuiTheme ({
     palette: {
         primary: {
-            light: '#f7fbfc',
-            main: '#d6e6f2',
-            dark: '#B9D7EA', 
+            light: '#c7dfee',
+            main: '#b9d7ea',
+            dark: '#8196a3', 
             contrastText: '#fff',
         },
         secondary: {
-            light: '#f7fbfc',
-            main: '#d6e6f2',
-            dark: '#f85050',
+            light: '#f97373',
+            main: '#f85050',
+            dark: '#ad3838',
             contrastText: '#000',
         },
     },
 })
 
-export default function CustomStyles() {
+const ThemeProvider = () => {
     return (
-    <ThemeProvider theme1={theme1}>
+    <ThemeProvider theme={theme}>
     </ThemeProvider>
     );
 }
+
+export default ThemeProvider
