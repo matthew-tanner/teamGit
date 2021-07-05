@@ -1,7 +1,9 @@
 import React, { useState } from 'react'
+import { BrowserRouter as Router } from 'react-router-dom'
 import './App.css';
 import geolocation from 'geolocation'
-import Weather from './Components/Weather';
+import Header from './Components/Header'
+import Sidebar from './Components/Sidebar';
 
 function App() {
   const [latitude, setLatitude] = useState('')
@@ -12,8 +14,6 @@ function App() {
       geolocation.getCurrentPosition(function (err, position) {
 
       if (err) throw err
-      console.log(position.coords.latitude)
-      console.log(position.coords.longitude)
       setLatitude(position.coords.latitude)
       setLongitude(position.coords.longitude)
       })
@@ -23,15 +23,20 @@ function App() {
       location()
     }
 
+    
+
   return (
     <div className="App">
-      {longitude}
-      <br />
-      {latitude}
+      <Header />
+      
+      <Router>
 
-      <Weather />
+      {/* <ElevateAppBar latitude={latitude} longitude={longitude}/> */}
+        <Sidebar latitude={latitude} longitude={longitude} />
+      </Router>
+
     </div>
-  );
+  )
 }
 
 export default App;
