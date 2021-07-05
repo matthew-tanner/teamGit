@@ -125,45 +125,46 @@ const GetEarthImage = ({ latitude, longitude }) => {
         <div>
             <main className={classes.content}>
                 <Toolbar />
-                <Typography paragraph className='homeHeader'>
-                    <h1>Satellite</h1>
+                <Typography variant="h3" color="error">
+                    Satellite
                 </Typography>
-                <Typography paragraph className='homeParagraph'>
+
+                <Typography variant="h6" color="primary">
                     Click below for a satellite image of your location
                 </Typography>
-                <Typography paragraph>
-                    <div className={classes.root}>
-                        <ButtonBase
-                            onClick={(e) => handleSubmit(e)}
-                            focusRipple
-                            key='Satelitte Image'
-                            className={classes.image}
-                            focusVisibleClassName={classes.focusVisible}
+
+                <div className={classes.root}>
+                    <ButtonBase
+                        onClick={(e) => handleSubmit(e)}
+                        focusRipple
+                        key='Satelitte Image'
+                        className={classes.image}
+                        focusVisibleClassName={classes.focusVisible}
+                        style={{
+                            width: '30%',
+                            marginBottom: '10px',
+                        }}
+                    >
+                        <span
+                            className={classes.imageSrc}
                             style={{
-                                width: '40%',
+                                backgroundImage: 'url(https://images.unsplash.com/photo-1534996858221-380b92700493?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1189&q=80)',
                             }}
-                        >
-                            <span
-                                className={classes.imageSrc}
-                                style={{
-                                    backgroundImage: 'url(https://images.unsplash.com/photo-1534996858221-380b92700493?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1189&q=80)',
-                                }}
-                            />
-                            <span className={classes.imageBackdrop} />
-                            <span className={classes.imageButton}>
-                                <Typography
-                                    component="span"
-                                    variant="subtitle1"
-                                    color="inherit"
-                                    className={classes.imageTitle}
-                                >
-                                    Satellite Image
-                                    <span className={classes.imageMarked} />
-                                </Typography>
-                            </span>
-                        </ButtonBase>
-                    </div>
-                </Typography>
+                        />
+                        <span className={classes.imageBackdrop} />
+                        <span className={classes.imageButton}>
+                            <Typography
+                                component="span"
+                                variant="subtitle1"
+                                color="inherit"
+                                className={classes.imageTitle}
+                            >
+                                Satellite Image
+                                <span className={classes.imageMarked} />
+                            </Typography>
+                        </span>
+                    </ButtonBase>
+                </div>
             </main>
 
             <div className={classes.content}>
