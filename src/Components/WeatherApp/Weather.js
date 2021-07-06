@@ -124,9 +124,6 @@ const Weather = ({ latitude, longitude }) => {
         .then( async res => {
             try {
                 const dataF = await res.json()
-                console.log(dataF.daily.map(a => Math.round(a.temp.max)))
-                console.log(dataF.daily.map(a => Math.round(a.temp.min)))
-                console.log(dataF.daily.map(a => a.weather[0].description))
                 setMax(Math.round(dataF.daily[0].temp.max))
                 setMin(Math.round(dataF.daily[0].temp.min))
                 setForecastConditions(dataF.daily[0].weather[0].description)

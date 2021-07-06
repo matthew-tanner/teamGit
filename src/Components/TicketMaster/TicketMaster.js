@@ -5,7 +5,6 @@ import ButtonBase from '@material-ui/core/ButtonBase';
 import Geohash from 'latlon-geohash'
 import TicketMasterDisplay from './TicketmasterDisplay'
 import { Typography } from '@material-ui/core';
-import { Container } from '@material-ui/core';
 
 const images = [
   {
