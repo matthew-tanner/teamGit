@@ -13,6 +13,7 @@ import { mdiThermometer } from '@mdi/js';
 import { mdiThermometerLow } from '@mdi/js';
 import { mdiThermometerHigh } from '@mdi/js';
 import { Container } from '@material-ui/core';
+import Forecast from './Forecast';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -114,6 +115,7 @@ const WeatherResults = ({ temp, description, max, min, forecastConditions, outlo
                 </Card>
 
                 <br />
+                <Forecast forecast={forecast} />
 
                 {/* <Card className={classes.root}>
                 <CardHeader 

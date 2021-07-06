@@ -1,6 +1,7 @@
 import React from "react";
 import { DataGrid } from "@material-ui/data-grid";
 import { makeStyles } from "@material-ui/core/styles";
+import { Container } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -71,6 +72,8 @@ const TicketMasterDisplay = (props) => {
   const table = () => {
     return(
     <main className={classes.content} style={{ display: "flex", height: 600 }}>
+      <Container>
+
       {eventMap()}
       <DataGrid
           autoPageSize
@@ -79,7 +82,8 @@ const TicketMasterDisplay = (props) => {
           rows={rows}
           columns={columns}
           rowHeight={25}
-        />
+          />
+      </Container>
       </main>
       )
   }
