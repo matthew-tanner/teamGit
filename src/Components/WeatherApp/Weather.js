@@ -143,6 +143,7 @@ const Weather = ({ latitude, longitude }) => {
     const handleSubmit = (e) => {
         e.preventDefault()
         fetchWeather()
+        fetchForecast()
         setShowSelection(true)
     }
 
