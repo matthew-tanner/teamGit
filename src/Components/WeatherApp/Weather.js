@@ -4,31 +4,32 @@ import { makeStyles } from '@material-ui/core/styles';
 import ButtonBase from '@material-ui/core/ButtonBase';
 import Typography from '@material-ui/core/Typography';
 import Toolbar from '@material-ui/core/Toolbar';
+import { Container } from '@material-ui/core';
 //
 
 const images = [
     {
     url: 'https://images.unsplash.com/photo-1462524500090-89443873e2b4?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80',
     title: 'Local Weather Conditions',
-    width: '40%',
+    width: '100%',
     },
 ];
 
 const useStyles = makeStyles((theme) => ({
     root: {
         display: 'flex',
-        flexWrap: 'wrap',
-        minWidth: 300,
+        flexWrap: 'nowrap',
+        minWidth: 1161,
         width: '100%',
-        alignItems: 'center',
-        justifyContent: 'center',
+        alignItems: 'justify',
+        justifyContent: 'center !important',
     },
     image: {
         position: 'relative',
-        height: 200,
-        [theme.breakpoints.down('xs')]: {
+        height: '100%',
+        [theme.breakpoints.down('xl')]: {
             width: '100% !important', // Overrides inline-style
-            height: 100,
+            height: 500
         },
         '&:hover, &$focusVisible': {
         zIndex: 1,
@@ -153,9 +154,11 @@ const Weather = ({ latitude, longitude }) => {
     const classes = useStyles();
     
         return(
-            <div>
+            <div className='classes.root'>
                 <main className={classes.content}>
                     <Toolbar/>
+                    <Container>
+
                     <Typography variant="h3" className='card-header'>Weather</Typography>
 
                     <Typography paragraph className='homeParagraph'>
@@ -176,9 +179,9 @@ const Weather = ({ latitude, longitude }) => {
                             <span
                                 className={classes.imageSrc}
                                 style={{
-                                backgroundImage: `url(${image.url})`,
+                                    backgroundImage: `url(${image.url})`,
                                 }}
-                            />
+                                />
                             <span className={classes.imageBackdrop} />
                             <span className={classes.imageButton}>
                                 <Typography
@@ -194,6 +197,7 @@ const Weather = ({ latitude, longitude }) => {
                             </ButtonBase>
                             ))}
                         </div>
+                            </Container>
                 </main>
 
                 <div className={classes.content}><WeatherResults temp={temp} description={description} max={max} min={min} forecastConditions={forecastConditions} outlookMax={outlookMax} outlookMin={outlookMin} outlookConditions={outlookConditions} forecast={forecast} showSelection={showSelection} /></div>

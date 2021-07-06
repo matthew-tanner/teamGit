@@ -21,6 +21,7 @@ const useStyles = makeStyles((theme) => ({
         justifyContent: 'center',
         textAlign: 'center',
         display: 'flex',
+        disableGutters: 'true'
     },
     content: {
         flexGrow: 1,
