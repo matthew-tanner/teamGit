@@ -1,5 +1,5 @@
 body {
-  background-color: #D9E4DD !important;
+  background-color: #F7FBFC !important;
   border: 1px solid transparent;
   padding-bottom: 20px;
 }
@@ -8,63 +8,44 @@ body {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
 /* Header Component */
 
 .app-bar {
-  background-color: #555555 !important;
+  background-color: #b9d7ea;
 }
 
-/* Sidebar Component */
+/* Sidebar */
 
 .sidebar {
-  display: flex;
-  background-color: #FBF7F0;
-  margin-top: 40px;
+  background-color: #f7fbfc;
 }
 
-ul {
+.sidebar-list {
   list-style-type: none;
+  text-align: center;
+  padding-bottom: 50px;
+  padding-right: 30px;
+
 }
 
 .sidebar-list-styling {
-  padding-left: 50px;
+  background-color: #D6e6f2;
+  /* padding-left: 50px; */
   padding-top: 15px;
   width: 20%;
-  background-color: #D9E4DD;
-  color: #555555;
+  color: black;
+  margin-top: -10px;
 }
 
 .sidebar-list a {
+  color: white;
+  padding: 0;
   text-decoration: none;
-  color: #555555;
 }
 
-.sidebar-list a:hover {
-  color: #353535;
-}
-
-.sidebar-route {
+.sidebar-route{
   flex: 1;
+  padding: '00px';
 }
 
 /* Home component */
@@ -73,4 +54,44 @@ ul {
   max-width: 50%;
   border-radius: 10px;
   opacity: 0.7;
+}
+
+.homeHeader {
+  color: #F85050;
+}
+
+.homeParagraph {
+  color: #8196a3;
+}
+
+/* Weather component */
+.submit {
+  background-color: #F85050;
+  vertical-align: middle;
+  border: none;
+  line-height: 1;
+  transition: all .1s ease-out;
+  margin-right: 4px;
+  margin-bottom: 4px;
+  max-width: 100%;
+  text-align: center;
+  color: #fafafa;
+  padding: 17px 30px;
+  text-transform: uppercase;
+  border-radius: 3px;
+  -webkit-appearance: none;
+  font-size: 14px
+}
+
+.submit a:hover {
+  box-shadow: 5px 5px 5px color #f85050;
+}
+
+.weatherList {
+  list-style-type: none;
+}
+
+.card-header {
+  color: #F85050;
+  text-align: center;
 }
