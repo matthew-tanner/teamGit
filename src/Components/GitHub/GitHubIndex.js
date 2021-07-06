@@ -41,7 +41,6 @@ const GitHubIndex = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         setCommits(data);
       });
   };

@@ -118,7 +118,7 @@ const GetEarthImage = ({ latitude, longitude }) => {
                 setImageUrl(data.url)
                 setImageDate(data.date)
             } catch (err) {
-                console.log('error')
+                
             }
         })
     }
