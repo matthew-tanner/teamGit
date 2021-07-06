@@ -1,6 +1,6 @@
 import React from "react";
 import { DataGrid } from "@material-ui/data-grid";
-import { makeStyles } from "@material-ui/core/styles";
+import { makeStyles, Button } from "@material-ui/core/";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -8,8 +8,10 @@ const useStyles = makeStyles((theme) => ({
   },
   content: {
     flexGrow: 1,
-    padding: theme.spacing(3),
-    width: "100%"
+    padding: theme.spacing(6),
+    margin: 'auto',
+    width: "100%",
+    height: 400
   },
   palette: {
     primary: {
@@ -37,6 +39,8 @@ const TicketMasterDisplay = (props) => {
       headerClassName: "",
       headerAlign: "center",
       width: 150,
+      color: "white"
+      // background: "#f7fbfc" 
     },
     {
       field: "col2",
@@ -50,37 +54,39 @@ const TicketMasterDisplay = (props) => {
       headerName: "Time",
       headerClassName: "",
       headerAlign: "center",
-      flex: 1,
+      width: 150
     },
     {
       field: "col4",
       headerName: "Date",
       headerClassName: "",
       headerAlign: "center",
-      flex: 1,
+      width: 150,
+
     },
     {
-      field: "col5",
+      field: "col5", 
       headerName: "Get Tickets",
       headerClassName: "",
       headerAlign: "center",
-      width: 150
+      width: 150,
     },
   ]
 
   const table = () => {
     return(
-    <main className={classes.content} style={{ display: "flex", height: 600 }}>
-      {eventMap()}
+    <div className={classes.content} >
+      {/* {eventMap()} */}
       <DataGrid
-          autoPageSize
+          // backgroundColor: theme.palette.primary.light,
           pagination
-          pageSize={10}
+          pageSize={5}
           rows={rows}
           columns={columns}
-          rowHeight={25}
+          rowHeight={30}
+          style={{color: 'white'}}
         />
-      </main>
+      </div>
       )
   }
   const eventMap = () => {
@@ -90,7 +96,7 @@ const TicketMasterDisplay = (props) => {
         id: index,
         col1: event.name,
         col2: event.distance,
-        col3: event.time,
+        col3: event.dates.start.localTime,
         col4: event.dates.start.localDate,
         col5: event.url
         // col6: <img src={event.images[0].url} />,
@@ -98,11 +104,13 @@ const TicketMasterDisplay = (props) => {
     });
   };
   return (
-    <div>
+    <>
+    <div style={{background: "#d6e6f2"}}>
       {table()}
       {eventMap()}
       
     </div>
+    </>
   );
 };
 

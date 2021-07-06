@@ -17,18 +17,29 @@ const useStyles = makeStyles((theme) => ({
   },
   palette: {
     primary: {
-      light: "#f7fbfc",
-      main: "#d6e6f2",
-      dark: "#B9D7EA",
+      light: '#c7dfee',
+      main: '#b9d7ea',
+      dark: '#8196a3', 
       contrastText: "#fff",
     },
     secondary: {
-      light: "#f7fbfc",
-      main: "#d6e6f2",
-      dark: "#f85050",
+      light: '#f97373',
+      main: '#f85050',
+      dark: '#ad3838',
       contrastText: "#000",
     },
   },
+  button: { 
+    color: "#fff",
+    margin: 75,
+    padding: 30,
+    border: '5px solid #8196a3', 
+    // display: "flex", 
+    width: '20%', 
+    height: '100%', 
+    alignSelf: 'center',
+    backgroundColor: theme.palette.primary.main, 
+  }
 }));
 
 let TicketMaster = ({latitude, longitude}) => {
@@ -57,14 +68,14 @@ let TicketMaster = ({latitude, longitude}) => {
     }, []);
   
     return(
-    <>
-    <span>Search for Events in Your Area</span>
+    <div style={{margin: '100px 0', width: '900px', display: 'flex', flexDirection: 'column'}}>
+    <span>Get Events in Your Area:</span>
     
-    <ButtonBase onClick={fetchTicketMaster} style={{ display: "flex", height: 300 }}>Search</ButtonBase>
+    <ButtonBase className={classes.button} onClick={fetchTicketMaster}>Local Events</ButtonBase>
 
     <TicketMasterDisplay events={events} />
 
-    </>
+    </div>
 )
 }
 
