@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { Toolbar } from "@material-ui/core";
+import Typography from "@material-ui/core/Typography";
 import CommitsTable from "./CommitsTable";
 
 const useStyles = makeStyles((theme) => ({
@@ -53,6 +54,12 @@ const GitHubIndex = () => {
     <div>
       <main className={classes.content}>
       <Toolbar />
+      <Typography variant="h3">
+          GitHub Commit History
+        </Typography>
+        <Typography paragraph >
+          The DataGrid shows full history of commits made in the develop branch for the teamGit repo.
+        </Typography>
         <CommitsTable fetchCommits={fetchCommits} commits={commits} />
       </main>
     </div>
