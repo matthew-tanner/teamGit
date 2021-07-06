@@ -104,10 +104,6 @@ const Weather = ({ latitude, longitude }) => {
     const [max, setMax] = useState('')
     const [min, setMin] = useState('')
     const [forecastConditions, setForecastConditions] = useState('')
-    const [outlookMax, setOutlookMax] = useState('')
-    const [outlookMin, setOutlookMin] = useState('')
-    const [outlookConditions, setOutlookConditions] = useState('')
-    const [forecast, setForecast] = useState('')
 
     const url = `${baseUrl}lat=${latitude}&lon=${longitude}&units=imperial&appid=${key}`
     
