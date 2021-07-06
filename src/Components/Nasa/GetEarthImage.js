@@ -10,14 +10,10 @@ import DisplayEarthImage from './DisplayEarthImage'
 const useStyles = makeStyles((theme) => ({
     root: {
         display: 'flex',
-        // flexWrap: 'wrap',
         flexWrap: 'nowrap',
-        // minWidth: 300,]
         minWidth: 1161,
         width: '100%',
-        // alignItems: 'center',
         alignItems: 'justify',
-        // justifyContent: 'center',
         justifyContent: 'center !important',
     },
     content: {
@@ -40,12 +36,9 @@ const useStyles = makeStyles((theme) => ({
     },
     image: {
         position: 'relative',
-        // height: 200,
         height: '100%',
-        // [theme.breakpoints.down('xs')]: {
             [theme.breakpoints.down('xl')]: {
             width: '100% !important', // Overrides inline-style
-            // height: 100,
             height: 500
         },
         '&:hover, &$focusVisible': {
@@ -117,7 +110,6 @@ const GetEarthImage = ({ latitude, longitude }) => {
     const [showImg, setShowImg] = useState(false)
 
     const apiUrl = `${baseUrl}lon=${longitude}&lat=${latitude}&date=2021-03-01&&dim=0.10&api_key=${apiKey}`
-    console.log(apiUrl)
 
     const fetcher = () => {
         fetch(apiUrl).then(async res => {
