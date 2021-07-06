@@ -12,7 +12,7 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(4),
     margin: 'auto',
     width: "100%",
-    height: 400
+    height: 400,
   },
   palette: {
     primary: {
@@ -40,8 +40,6 @@ const TicketMasterDisplay = (props) => {
       headerClassName: "",
       headerAlign: "center",
       flex: 1,
-      color: "white"
-      // background: "#f7fbfc" 
     },
     {
       field: "col2",
@@ -81,7 +79,6 @@ const TicketMasterDisplay = (props) => {
 
       {eventMap()}
       <DataGrid
-          // backgroundColor: theme.palette.primary.light,
           pagination
           pageSize={5}
           rows={rows}
