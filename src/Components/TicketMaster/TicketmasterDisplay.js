@@ -1,6 +1,7 @@
 import React from "react";
 import { DataGrid } from "@material-ui/data-grid";
-import { makeStyles, Button } from "@material-ui/core/";
+import { makeStyles } from "@material-ui/core/styles";
+import { Container } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -8,7 +9,7 @@ const useStyles = makeStyles((theme) => ({
   },
   content: {
     flexGrow: 1,
-    padding: theme.spacing(6),
+    padding: theme.spacing(4),
     margin: 'auto',
     width: "100%",
     height: 400
@@ -75,18 +76,20 @@ const TicketMasterDisplay = (props) => {
 
   const table = () => {
     return(
-    <div className={classes.content} >
-      {/* {eventMap()} */}
+    <main className={classes.content} style={{ display: "flex", height: 600 }}>
+      <Container>
+
+      {eventMap()}
       <DataGrid
           // backgroundColor: theme.palette.primary.light,
           pagination
           pageSize={5}
           rows={rows}
           columns={columns}
-          rowHeight={30}
-          style={{color: 'white'}}
-        />
-      </div>
+          rowHeight={25}
+          />
+      </Container>
+      </main>
       )
   }
   const eventMap = () => {
