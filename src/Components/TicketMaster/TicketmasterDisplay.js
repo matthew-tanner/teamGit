@@ -39,7 +39,7 @@ const TicketMasterDisplay = (props) => {
       headerName: "Events",
       headerClassName: "",
       headerAlign: "center",
-      width: 150,
+      flex: 1,
       color: "white"
       // background: "#f7fbfc" 
     },
@@ -48,21 +48,21 @@ const TicketMasterDisplay = (props) => {
       headerName: "Distance",
       headerClassName: "",
       headerAlign: "center",
-      width: 150,
+      flex: 1,
     },
     {
       field: "col3",
       headerName: "Time",
       headerClassName: "",
       headerAlign: "center",
-      width: 150
+      flex: 1,
     },
     {
       field: "col4",
       headerName: "Date",
       headerClassName: "",
       headerAlign: "center",
-      width: 150,
+      flex: 1,
 
     },
     {
@@ -70,13 +70,13 @@ const TicketMasterDisplay = (props) => {
       headerName: "Get Tickets",
       headerClassName: "",
       headerAlign: "center",
-      width: 150,
+      flex: 1,
     },
   ]
 
   const table = () => {
     return(
-    <main className={classes.content} style={{ display: "flex", height: 600 }}>
+    <main className={classes.content} style={{ display: "flex", height: 300 }}>
       <Container>
 
       {eventMap()}
