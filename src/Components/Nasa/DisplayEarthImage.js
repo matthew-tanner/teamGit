@@ -11,7 +11,6 @@ import Container from '@material-ui/core/Container';
 const useStyles = makeStyles((theme) => ({
   root: {
     display: "flex",
-    //   maxWidth: 500,
   },
   content: {
     flexGrow: 1,
@@ -39,7 +38,6 @@ const DisplayEarthImage = ({ imageUrl, imageDate, latitude, longitude, showImg})
   const displayReady = () => {
     if (showImg) {
       return (
-        // <Container>
         <Container maxWidth="sm">
           <Card className={classes.root} >
             <CardActionArea>

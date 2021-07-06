@@ -98,7 +98,6 @@ const TicketMasterDisplay = (props) => {
       )
   }
   const eventMap = () => {
-  
     props.events.map((event, index) => { 
       return rows.push({
         id: index,

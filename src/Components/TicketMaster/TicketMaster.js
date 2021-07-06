@@ -162,7 +162,6 @@ let TicketMaster = ({latitude, longitude}) => {
                             </span>
                             </ButtonBase>
                             ))}
-                        {/* </Container> */}
                         </main>
                         </div>
 
