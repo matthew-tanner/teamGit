@@ -6,13 +6,21 @@ import { Container } from "@material-ui/core";
 const useStyles = makeStyles((theme) => ({
   root: {
     display: "flex",
+    width: "100%",
+    "& .grid-header": {
+      backgroundColor: "rgba(255, 7, 0, 0.55)",
+      font: '20px bold',
+      color: 'white',
+    }
+    
   },
   content: {
     flexGrow: 1,
-    padding: theme.spacing(4),
+    padding: theme.spacing(3),
     margin: 'auto',
     width: "100%",
     height: 400,
+    
   },
   palette: {
     primary: {
@@ -37,28 +45,28 @@ const TicketMasterDisplay = (props) => {
     {
       field: "col1",
       headerName: "Events",
-      headerClassName: "",
+      headerClassName: "grid-header",
       headerAlign: "center",
       flex: 1,
     },
     {
       field: "col2",
       headerName: "Distance",
-      headerClassName: "",
+      headerClassName: "grid-header",
       headerAlign: "center",
       flex: 1,
     },
     {
       field: "col3",
       headerName: "Time",
-      headerClassName: "",
+      headerClassName: "grid-header",
       headerAlign: "center",
       flex: 1,
     },
     {
       field: "col4",
       headerName: "Date",
-      headerClassName: "",
+      headerClassName: "grid-header",
       headerAlign: "center",
       flex: 1,
 
@@ -66,7 +74,7 @@ const TicketMasterDisplay = (props) => {
     {
       field: "col5", 
       headerName: "Get Tickets",
-      headerClassName: "",
+      headerClassName: "grid-header",
       headerAlign: "center",
       flex: 1,
     },
@@ -74,7 +82,7 @@ const TicketMasterDisplay = (props) => {
 
   const table = () => {
     return(
-    <main className={classes.content} style={{ display: "flex", height: 300 }}>
+    <main className={classes.root} style={{ display: "flex", height: 300 }}>
       <Container>
 
       {eventMap()}
@@ -90,7 +98,7 @@ const TicketMasterDisplay = (props) => {
       )
   }
   const eventMap = () => {
-    console.log(props.events);
+  
     props.events.map((event, index) => { 
       return rows.push({
         id: index,
