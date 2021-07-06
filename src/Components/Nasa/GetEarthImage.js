@@ -3,24 +3,50 @@ import { makeStyles } from '@material-ui/core/styles'
 import ButtonBase from '@material-ui/core/ButtonBase';
 import Typography from '@material-ui/core/Typography';
 import Toolbar from '@material-ui/core/Toolbar';
+import Container from '@material-ui/core/Container';
 
 import DisplayEarthImage from './DisplayEarthImage'
 
 const useStyles = makeStyles((theme) => ({
     root: {
         display: 'flex',
-        flexWrap: 'wrap',
-        minWidth: 300,
+        // flexWrap: 'wrap',
+        flexWrap: 'nowrap',
+        // minWidth: 300,]
+        minWidth: 1161,
         width: '100%',
-        alignItems: 'center',
-        justifyContent: 'center',
+        // alignItems: 'center',
+        alignItems: 'justify',
+        // justifyContent: 'center',
+        justifyContent: 'center !important',
+    },
+    content: {
+        flexGrow: 1,
+        padding: theme.spacing(3),
+    },
+    palette: {
+        primary: {
+            light: "#f7fbfc",
+            main: "#d6e6f2",
+            dark: "#B9D7EA",
+            contrastText: "#fff",
+        },
+        secondary: {
+            light: "#f7fbfc",
+            main: "#d6e6f2",
+            dark: "#f85050",
+            contrastText: "#000",
+        },
     },
     image: {
         position: 'relative',
-        height: 200,
-        [theme.breakpoints.down('xs')]: {
+        // height: 200,
+        height: '100%',
+        // [theme.breakpoints.down('xs')]: {
+            [theme.breakpoints.down('xl')]: {
             width: '100% !important', // Overrides inline-style
-            height: 100,
+            // height: 100,
+            height: 500
         },
         '&:hover, &$focusVisible': {
             zIndex: 1,
@@ -88,32 +114,27 @@ const apiKey = "U5YCwar82d9GKNPxCGPTYasZE30KkEyD2glgTP35"
 const GetEarthImage = ({ latitude, longitude }) => {
     const [imageUrl, setImageUrl] = useState()
     const [imageDate, setImageDate] = useState()
+    const [showImg, setShowImg] = useState(false)
 
     const apiUrl = `${baseUrl}lon=${longitude}&lat=${latitude}&date=2021-03-01&&dim=0.10&api_key=${apiKey}`
     console.log(apiUrl)
 
     const fetcher = () => {
-        fetch(apiUrl, {
-            method: 'GET',
-            headers: {
-                'Content-Type': 'application/json'
+        fetch(apiUrl).then(async res => {
+            try {
+                const data = await res.json()
+                setImageUrl(data.url)
+                setImageDate(data.date)
+            } catch (err) {
+                console.log('error')
             }
         })
-            .then(async res => {
-                try {
-                    const data = await res.json()
-                    setImageUrl(data.url)
-                    setImageDate(data.date)
-                } catch (err) {
-                    console.log('error happened here');
-                    console.error(err)
-                }
-            })
     }
 
     const handleSubmit = (e) => {
         e.preventDefault()
         fetcher()
+        setShowImg(true)
     }
 
     const classes = useStyles();
@@ -122,13 +143,16 @@ const GetEarthImage = ({ latitude, longitude }) => {
         <div>
             <main className={classes.content}>
                 <Toolbar />
-                <Typography paragraph className='homeHeader'>
-                    <h1>Satellite</h1>
-                </Typography>
-                <Typography paragraph className='homeParagraph'>
-                    Click below for a satellite image of your location
-                </Typography>
-                <Typography paragraph>
+                <Container>
+
+                    <Typography variant="h3" color="error">
+                        Satellite
+                    </Typography>
+
+                    <Typography variant="h6" color="primary">
+                        Click below for a satellite image of your location
+                    </Typography>
+
                     <div className={classes.root}>
                         <ButtonBase
                             onClick={(e) => handleSubmit(e)}
@@ -137,7 +161,8 @@ const GetEarthImage = ({ latitude, longitude }) => {
                             className={classes.image}
                             focusVisibleClassName={classes.focusVisible}
                             style={{
-                                width: '40%',
+                                width: '30%',
+                                marginBottom: '10px',
                             }}
                         >
                             <span
@@ -160,7 +185,7 @@ const GetEarthImage = ({ latitude, longitude }) => {
                             </span>
                         </ButtonBase>
                     </div>
-                </Typography>
+                </Container>
             </main>
 
             <div className={classes.content}>
@@ -169,6 +194,7 @@ const GetEarthImage = ({ latitude, longitude }) => {
                     imageDate={imageDate}
                     latitude={latitude}
                     longitude={longitude}
+                    showImg={showImg}
                 />
             </div>
         </div>
@@ -176,4 +202,3 @@ const GetEarthImage = ({ latitude, longitude }) => {
 }
 
 export default GetEarthImage
-
